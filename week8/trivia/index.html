@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <script defer>
+            const buttons = document.querySelectorAll(".btn");
+            const submitBtn = document.getElementById("submit-btn");
+            const answer = document.getElementById("answer");
+            const judge1 = document.getElementById("judge1");
+            const judge2 = document.getElementById("judge2");
+
+            buttons[0].addEventListener("click", function() {
+                buttons[0].style.backgroundColor = "#ff6961";
+                buttons[1].style.backgroundColor = "#ccc";
+                buttons[2].style.backgroundColor = "#ccc";
+                judge1.innerHTML = "Incorrect";
+                judge1.style.color = "#ff6961";
+            });
+
+            buttons[1].addEventListener("click", function() {
+                buttons[0].style.backgroundColor = "#ccc";
+                buttons[1].style.backgroundColor = "#ff6961";
+                buttons[2].style.backgroundColor = "#ccc";
+                judge1.innerHTML = "Incorrect";
+                judge1.style.color = "#ff6961";
+            });
+
+            buttons[2].addEventListener("click", function() {
+                buttons[0].style.backgroundColor = "#ccc";
+                buttons[1].style.backgroundColor = "#ccc";
+                buttons[2].style.backgroundColor = "#77dd77";
+                judge1.innerHTML = "Correct!";
+                judge1.style.color = "#77dd77";
+            });
+
+            submitBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                if (answer.value.toLowerCase() == "cs50")
+                {
+                    answer.style.backgroundColor = "#77dd77";
+                    answer.style.color = "#eee";
+                    judge2.innerHTML = "Correct!";
+                    judge2.style.color = "#77dd77";
+                }
+                else
+                {
+                    answer.style.backgroundColor = "#ff6961";
+                    answer.style.color = "#fff";
+                    judge2.innerHTML = "Incorrect";
+                    judge2.style.color = "#ff6961";
+                }
+            })
+        </script>
+        <title>Trivia!</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is kinda sexy?</h3>
+                <p id="judge1"></p>
+                <button id="btn1" class="btn">Scratch</button>
+                <button class="btn">Hash Tables</button>
+                <button class="btn">Recursion</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>This is:</h3>
+                <p id="judge2"></p>
+                <input id="answer" type="text" placeholder="placeholder">
+                <input id="submit-btn" type="submit">
+            </div>
+        </div>
+    </body>
+</html>

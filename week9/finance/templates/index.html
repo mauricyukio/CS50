@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portofio
+{% endblock %}
+
+{% block main %}
+    <table>
+        <h1>Your Portfolio:</h1>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+                <th>Buy</th>
+                <th>Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ lookup(stock.symbol)["price"] | usd }}</td>
+                <td>{{ usd(stock.shares * lookup(stock.symbol)["price"]) }}</td>
+                <td>
+                    <form action="/" method="post" class="mini-form">
+                        <div class="mb-3">
+                            <input name="symbol" type="hidden" value="{{ stock.symbol }}">
+                            <input name="type" type="hidden" value="buy">
+                            <input autocomplete="off" class="form-control mx-auto w-auto" name="shares" placeholder="Shares" type="number" step="1" min="0">
+                        </div>
+                        <button class="btn btn-primary btn-dark" type="submit">Buy</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/" method="post" class="mini-form">
+                        <div class="mb-3">
+                            <input name="symbol" type="hidden" value="{{ stock.symbol }}">
+                            <input name="type" type="hidden" value="sell">
+                            <input autocomplete="off" class="form-control mx-auto w-auto" name="shares" placeholder="Shares" type="number" step="1" min="0">
+                        </div>
+                        <button class="btn btn-primary btn-dark" type="submit">Sell</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td><em>cash balance</em></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><em>{{ cash | usd }}</em></td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><b>TOTAL</b</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><b>{{ total | usd }}</b></td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+        </tfoot>
+
+    </table>
+{% endblock %}

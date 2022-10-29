@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" required autocomplete="off" autofocus name="name" placeholder="Name">
+                    <label for="month">Month:</label>
+                    <input type="number" step="1" min="1" max="12" required autocomplete="off" name="month" placeholder="Month">
+                    <label for="day">Day:</label>
+                    <input type="number" step="1" min="1" max="31" required autocomplete="off" name="day" placeholder="Day">
+                    <input type="submit" value="Add Birthday">
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for birthday in birthdays %}
+                        <tr>
+                            <td>{{ birthday.id }}</td>
+                            <td>{{ birthday.name }}</td>
+                            <td>{{ birthday.month }} / {{ birthday.day }}</td>
+                            <td>
+                                <form action="/delete" method="post">
+                                    <input name="id" type="hidden" value="{{ birthday.id }}">
+                                    <input id="{{birthday.id}}" type="submit" value="DELETE">
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

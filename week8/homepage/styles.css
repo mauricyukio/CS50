@@ -1,0 +1,183 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee;
+    color: #222;
+}
+
+header {
+    flex: 2;
+    width: 100vw;
+    margin: 2rem auto;
+}
+
+li {
+    color: #222;
+    margin: 1rem;
+    list-style-type: none;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.15rem;
+    background-color: #222;
+    transition: opacity 400ms, transform 400ms;
+    opacity 1;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+li a:hover::after,
+li a:focus::after {
+    transform: scale(1);
+}
+
+#brand {
+    margin-left: 2rem;
+}
+
+main {
+    width: 60vw;
+    flex: 6;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+hr {
+    margin: 2rem auto;
+}
+
+#me0 {
+    z-index: -1;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 784px;
+    height: 1016px;
+    opacity: .7;
+}
+
+#cs50x {
+    width: 100%;
+    height: auto;
+    margin-top: 5rem;
+}
+
+#iframe-container {
+    position: relative;
+    overflow: hidden;
+    display: none;
+    margin-top: 5rem;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+#contact-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contact-image {
+    width: 300px;
+    border-radius: 50%;
+    margin: 3rem auto;
+}
+
+footer {
+    margin-top: auto;
+    margin: 0 auto;
+    flex: 1;
+    width: 100vw;
+    text-align: center;
+}
+
+footer p {
+    font-size: .8rem;
+}
+
+.gallery {
+    border-radius: 1rem;
+    margin-right: 2rem;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+
+.column {
+    flex: 50%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 767px) {
+    main {
+        width: 80vw;
+    }
+
+    #me0 {
+        opacity: .3;
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 12vw;
+    }
+
+    h2 {
+        font-size: 6vw;
+    }
+
+    p {
+        font-size: 4vw;
+    }
+}

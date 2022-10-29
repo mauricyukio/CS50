@@ -1,0 +1,74 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+table {
+    background-color: transparent;
+    margin: 3rem auto;
+    width: 70vw;
+}
+
+table th,
+table td,
+table tfoot {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+table th,
+table tfoot {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #ddd;
+}
+
+.container {
+    background-color: #ddd;
+    padding: 1rem;
+    max-width: 300px;
+    text-align: left;
+    border-radius: .5rem;
+}
+
+.container li {
+    list-style-type: square;
+}
+
+.mini-form {
+    height: 2.5rem;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.mini-form input {
+    max-width: 6rem;
+}
+
+.mini-form button {
+    height: 2.3rem;
+    margin-left: 1rem;
+}

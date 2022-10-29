@@ -1,0 +1,17 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It is the only one with dramaticly different real times to run sorted50000.txt and reversed50000.txt, which indicates that
+their order of algorithm performance in big O notation is also different, and the only sort method among the three that were studied in which
+this happens is Bubble Sort.
+
+sort2 uses: Merge Sort
+
+How do you know?: Real times to run sorted50000.txt and reversed50000.txt are pretty similar, meaning that the order of efficiency for this
+algorithm is the same for both the best case scenario and the worst case scenario. Comparing the times with sort3, it becomes clear that
+sort2 is faster for any case, meaning that its algorithm efficiency is better than sort3's (or that the big O notation order is smaller,
+aka n.log(n) < n^2).
+
+sort3 uses: Selection Sort
+
+How do you know?: Via elimination process, and comparing its times of execution to sort2's. Its efficiency is way lower than sort2's for any case,
+meaning the big O notation order is bigger, aka n^2 > n.log(n), thus corresponding to Selection Sort.
